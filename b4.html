@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" name="array" id="array" placeholder="nhap mang1">
+
+    <button onclick="showResult()"> result</button>
+</body>
+</html>
+<script>
+    function findUnique(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            let isUnique = true;
+            for (let j = 0; j < arr.length; j++) {
+                if (i !== j && arr[i] === arr[j]) {
+                    isUnique = false;
+                    break;
+                }
+            }
+            if (isUnique) {
+                return arr[i];
+            }
+        }
+        return null;
+    }
+  
+    function showResult(){
+        let arr = document.getElementById('array').value.split(',').map(Number)
+        
+        alert(findUnique(arr))
+    }
+</script>

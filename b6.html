@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" name="array" id="array" placeholder="nhap mang1">
+    <input type="text" name="input" id="input" placeholder="nhap k">
+    <button onclick="showResult()"> result</button>
+</body>
+</html>
+<script>
+    function findResult(arr, input) {
+        let arr_new = arr.sort().reverse();
+        if (arr_new[input] ){
+            return `Gia tri can tim la ${arr_new[input]}`
+        } else{
+            return 'khong tim thay ket qua'
+        }
+    }
+  
+    function showResult(){
+        let arr = document.getElementById('array').value.split(',').map(Number)
+        let input = +document.getElementById('input').value
+        alert(findResult(arr, input))
+    }
+</script>

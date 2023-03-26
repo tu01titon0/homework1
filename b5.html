@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" name="array" id="array" placeholder="nhap mang1">
+    <input type="text" name="array1" id="array1" placeholder="nhap mang2">
+    <input type="text" name="arra2" id="array2" placeholder="nhap mang3">
+    <input type="text" name="array3" id="array3" placeholder="nhap mang4">
+
+    <button onclick="showResult()"> result</button>
+</body>
+</html>
+<script>
+    function findSum(arr, arr1, arr2, arr3) {
+        let sum1 = arr.reduce((acc, cur) => acc + cur, 0);
+        let sum2 = arr1.reduce((acc, cur) => acc + cur, 0);
+        let sum3 = arr2.reduce((acc, cur) => acc + cur, 0);
+        let sum4 = arr3.reduce((acc, cur) => acc + cur, 0);
+        max = Math.max(sum1, sum2, sum3, sum4);
+        if (max == sum1){
+            return "mang 1 co tong long nhat"
+        } else if(max == sum2){
+            return "mang 2 co tong long nhat"
+        } else if(max == sum3){
+            return "mang 3 co tong long nhat"
+        } else {
+            return "mang 4 co tong long nhat"
+        }
+    }
+  
+    function showResult(){
+        let arr = document.getElementById('array').value.split(',').map(Number)
+        let arr1 = document.getElementById('array1').value.split(',').map(Number)
+        let arr2 = document.getElementById('array2').value.split(',').map(Number)
+        let arr3 = document.getElementById('array3').value.split(',').map(Number)
+        alert(findSum(arr, arr1, arr2, arr3))
+    }
+</script>

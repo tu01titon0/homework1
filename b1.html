@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function findMaxValue(func, a, b) {
+        let max = func(a);
+        for (let x = a; x <= b; x++) {
+            let y = f(x);
+            if (y > max) {
+                max = y;
+            }
+        }
+        return max;
+    }
+
+    let func = x => x * x - 8 * x - 5; 
+    let a = 1111;
+    let b = 33;
+    let max = findMaxValue(f, a, b);
+    document.write(` ${a} đến ${b} là: ${max}`);
+</script>

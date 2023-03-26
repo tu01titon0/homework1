@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="text" name="array" id="array" placeholder="nhap mang">
+    <input type="text" name="input" id = "input" placeholder="Tong" >
+
+    <button onclick="showResult()"> result</button>
+</body>
+</html>
+<script !src="">
+    function findSum(arr, input) {
+        let array = [];
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 1; j < arr.length; j++){
+                if (parseInt(arr[i]) + parseInt(arr[j]) == input && arr[i] != arr[j]){
+                    array.push([i,j])
+                }    
+            }
+        }
+       
+        if (array.length == 0){
+            return 'khong co gia tri thoa man de bai'
+        } else if (array.length == 1){
+            return `${arr[array[0][0]]} va ${arr[array[0][1]]}`
+        } else {
+            let min  = array[0][1] - array[0][0]
+            let arr_min = []
+            for (let k = 1; k < array.length; k++) {
+                
+                if (checkInYang(array[k][1], array[k][0])< min){
+                    min =  checkInYang(array[k][1], array[k][0]) 
+                    arr_min = [array[k][0] ,array[k][1]]
+                    console.log(min)
+                    console.log(array)
+                }
+            }
+            return `${arr[arr_min[1]]} va ${arr[arr_min[0]]}`
+        }
+    }
+    function checkInYang(number1, number2){
+        if (number2-number1 < 0 ){
+            return number2-number1 * -1
+        } else {
+            return number2-number1
+        }
+    }
+    function showResult(){
+        let input = +document.getElementById('input').value
+        let arr = document.getElementById('array').value.split(',')
+        alert(findSum(arr, input))
+    }
+</script>
